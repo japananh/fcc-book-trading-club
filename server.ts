@@ -7,7 +7,6 @@ import helmet from "helmet";
 import mongoose from "mongoose";
 
 import apiRoutes from "./routes/api";
-
 import fccTestingRoutes from "./routes/fcctesting";
 import runner from "./test-runner";
 import { errorConverter, errorHandler } from "./middlewares/error";
@@ -21,6 +20,7 @@ app.use(cors({ origin: "*" })); // For FCC testing purposes only
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(
 	helmet({
 		contentSecurityPolicy: {
@@ -46,9 +46,6 @@ app.use(
 		nocache: true,
 		noSniff: true,
 		hidePoweredBy: true,
-		// frameguard: {
-		//   action: "deny",
-		// },
 	})
 );
 
