@@ -33,12 +33,12 @@ import path from "path";
 import analyser from "./assertion-analyser";
 
 const mocha = new Mocha();
-const testDir = "./tests";
+const testDir = "./src/tests";
 
-// Add each .js file to the mocha instance
+// Add each .ts file to the mocha instance
 fs.readdirSync(testDir)
 	.filter(function (file) {
-		// Only keep the .js files
+		// Only keep the .ts files
 		return file.substr(-3) === ".ts";
 	})
 	.forEach(function (file) {
