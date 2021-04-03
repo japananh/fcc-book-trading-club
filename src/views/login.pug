@@ -1,0 +1,14 @@
+extend layout.pug  
+
+block content
+    .container 
+        h1 Login    
+
+        form(action="/api/auth/login", method="post")
+            .form-group 
+                label(for='username') Username
+                input#username.form-control(type="text", placeholder="Enter your username", required) 
+            .form-group 
+                label(for='password') Password
+                input#password.form-control(type="password", placeholder="Enter your password", required)
+            button.btn.btn-primary(type="submit") Login 

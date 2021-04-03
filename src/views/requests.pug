@@ -1,0 +1,30 @@
+extend layout.pug  
+
+block content
+    .container 
+        h1 All requests 
+        
+        a.btn.btn-primary(href="/requests/new") New request 
+
+        ul.list-group 
+            each request in requests 
+                li.list-group-item 
+                    .row 
+                        .col-sm 
+                            ul.list-group= `${request.createdBy} wants to give:`
+                                each givenBook in givenBooks
+                                    li.list-group-item 
+                                        h4.list-group-item-heading= givenBook.title
+                                        p.list-group-item-text= `from ${givenBook.author}`
+                                        p.list-group-item-text= givenBook.description  
+
+                        .col-sm 
+                            ul.list-group and wants to take: 
+                                each takenBook in takenBooks 
+                                    li.list-group-item 
+                                        h4.list-group-item-heading= givenBook.title
+                                        p.list-group-item-text= `from ${givenBook.author}`
+                                        p.list-group-item-text= givenBook.description
+                                        p.list-group-item-text
+                                            | Requests:
+                                            span.badge.badge-primary.badge-pill= givenBook.requests.length

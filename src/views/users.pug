@@ -1,0 +1,15 @@
+extend layout.pug  
+
+block content
+    .container 
+        h1 Users
+
+        ul.list-group 
+            each user in users
+                li.list-group-item 
+                    h4.list-group-item-heading
+                        a(href=`/users/${id}`)= user.username
+                    p.list-group-item-text= user.city
+                    p.list-group-item-text
+                        span.badge.badge-primary.badge-pill= `Books: ${user.books.count}`
+                        span.badge.badge-warning.badge-pill= `Incoming Request: ${user.books.incommingRequests}`

@@ -1,0 +1,22 @@
+extend layout.pug  
+
+block content
+    .container 
+        h1 Select books to trade    
+
+        ul.list-group
+            each book in books
+                li.list-group-item 
+                    h4.list-group-item-heading
+                        a(href=`/books/${id}`)= book.title
+                    p.list-group-item-text= `Author: ${book.author}`
+                    p.list-group-item-text= `Description: ${book.desription}`
+                    p.list-group-item-text
+                        | from 
+                        a(href=`/users/${book.owner.id}`)= book.onwer.username 
+                        | in #{book.owner.city}
+                    p.list-group-item-text 
+                        a(href=`/books/${book.id}/requests`) Requests
+                        span.badge.badge-primary.badge-pill= `Books: ${user.books.count}`
+                    button.btn.btn-primary(type="button") Select
+
